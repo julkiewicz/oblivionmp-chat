@@ -37,7 +37,7 @@ server has to run the chat mod too:
 ```json
 "dependencies": [
   { "uniqueId": "OblivionMP.SDK", "minimumVersion": "1.0.0" },
-  { "uniqueId": "ChatMod", "minimumVersion": "1.0.0" }
+  { "uniqueId": "OblivionMP.Chat", "minimumVersion": "1.0.0" }
 ]
 ```
 
@@ -49,11 +49,11 @@ The projects build against the OblivionMP SDK packages from NuGet: `ReadyM.SDK.O
 `.Server`. Their version is set once, as `OblivionSdkVersion` in `Directory.Build.props`.
 
 ```powershell
-.\MakeModFolder.ps1 Release                  # the mod, into Output/mods/OblivionMp.ChatMod
+.\MakeModFolder.ps1 Release                  # the mod, into Output/mods/OblivionMP.Chat
 .\BuildNugetPackages.ps1                     # the two packages above, into Output/nuget
 ```
 
 Use `Debug` instead of `Release` to include `.pdb` symbol files.
 
-Copy `Output/mods/OblivionMp.ChatMod/` into your server's `mods/` directory, next to the `OblivionMp.Sdk` mod,
+Copy `Output/mods/OblivionMP.Chat/` into your server's `mods/` directory, next to the `OblivionMp.Sdk` mod,
 and restart the server. Connecting players receive the client half automatically.

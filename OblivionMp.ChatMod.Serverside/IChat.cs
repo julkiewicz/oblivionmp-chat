@@ -5,7 +5,7 @@ namespace OblivionMp.ChatMod.Serverside;
 
 /// Server chat, for other server mods to use. Take it as a constructor parameter, like any service.
 /// <remarks>
-/// Your mod has to list the chat mod (uniqueId <c>ChatMod</c>) as a dependency in its manifest, so chat is loaded
+/// Your mod has to list the chat mod (uniqueId <c>OblivionMP.Chat</c>) as a dependency in its manifest, so chat is loaded
 /// first.
 /// </remarks>
 public interface IChat

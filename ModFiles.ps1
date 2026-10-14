@@ -9,7 +9,7 @@
 # The server hands the client folder to connecting players and keeps the server folder to itself.
 
 # Folder name of the packaged mod.
-$modName = "OblivionMp.ChatMod"
+$modName = "OblivionMP.Chat"
 
 # The projects the two halves build from.
 $clientProject = "OblivionMp.ChatMod"
