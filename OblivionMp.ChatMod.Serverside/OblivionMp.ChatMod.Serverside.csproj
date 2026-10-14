@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <RootNamespace>OblivionMp.ChatMod.Serverside</RootNamespace>
+
+        <IsPackable>true</IsPackable>
+        <PackageId>ReadyM.Oblivion.Chat.Server</PackageId>
+        <Title>OblivionMP chat, server</Title>
+        <Description>The server API of the OblivionMP chat mod: broadcast, send to one player, add slash commands. For a server mod that lists the chat mod as a dependency.</Description>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="ReadyM.SDK.Oblivion.Server" Version="$(OblivionSdkVersion)" />
+        <PackageReference Include="JetBrains.Annotations" Version="2025.2.4" PrivateAssets="all" />
+    </ItemGroup>
+
+    <!-- Packed into this package rather than depended on, see Directory.Build.targets -->
+    <ItemGroup>
+        <ProjectReference Include="..\OblivionMp.ChatMod.Common\OblivionMp.ChatMod.Common.csproj" PrivateAssets="all" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\README.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <RootNamespace>OblivionMp.ChatMod.Common</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="ReadyM.SDK.Oblivion.Common" Version="$(OblivionSdkVersion)" />
+    </ItemGroup>
+
+</Project>

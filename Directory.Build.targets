@@ -1,0 +1,20 @@
+<Project>
+
+    <!--
+        The two chat packages each carry OblivionMp.ChatMod.Common.dll alongside their own assembly, rather than
+        depending on a third package for it. A mod references only the half it is building, and the shared chat
+        types have to come with it.
+    -->
+    <Target Name="PackChatCommon" Condition="'$(IsPackable)' == 'true'" DependsOnTargets="ResolveReferences">
+        <ItemGroup>
+            <_ChatCommon Include="@(ReferenceCopyLocalPaths)"
+                         Condition="'%(Filename)' == 'OblivionMp.ChatMod.Common' and ('%(Extension)' == '.dll' or '%(Extension)' == '.xml')" />
+            <BuildOutputInPackage Include="@(_ChatCommon)" />
+        </ItemGroup>
+    </Target>
+
+    <PropertyGroup Condition="'$(IsPackable)' == 'true'">
+        <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);PackChatCommon</TargetsForTfmSpecificBuildOutput>
+    </PropertyGroup>
+
+</Project>

@@ -1,0 +1,89 @@
+:root {
+  --panel: rgba(10, 10, 10, 0.55);
+  --muted: #a1a1a1;
+  --ic: #ffffff;
+  --nickname: #8fc7ff;
+  --action: #c8a2e0;
+  --ambient: #a78bd0;
+  --ooc: #b0b0b0;
+  --private: #f5d76e;
+  --system: #ffd100;
+  --reply: #a7e8a0;
+  --rejection: #ff8a7a;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: transparent;
+  overflow: hidden;
+
+  /* TRANSPARENT TO THE POINTER, which is what keeps the game's mouse the game's. The overlay is put into the
+     engine's hit test only where the page says its own content is, and that answer comes from the browser's
+     own hit testing, so this makes it no everywhere. Focus still moves here when the game hands it over. */
+  pointer-events: none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 12px 16px;
+  box-sizing: border-box;
+  font: 400 15px/1.45 Inter, "Segoe UI", system-ui, sans-serif;
+  color: var(--ic);
+  user-select: none;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+#lines {
+  list-style: none;
+  transition: opacity 600ms ease;
+  margin: 0;
+  padding: 8px;
+  overflow-y: auto;
+  background: var(--panel);
+  border-radius: 8px;
+  scrollbar-width: thin;
+  overflow-wrap: anywhere;
+}
+
+#lines:empty { display: none; }
+
+/* Idle means nothing has happened for a while and the entry line is closed, so the log gets out of the way.
+   It keeps its space rather than being removed, so a line arriving does not shift the screen. */
+body.idle #lines { opacity: 0; }
+
+#lines li { padding: 1px 0; }
+
+.time { color: var(--muted); }
+.nickname { color: var(--nickname); font-weight: 600; }
+
+.Action { color: var(--action); }
+.Ambient { color: var(--ambient); font-style: italic; }
+.Ooc { color: var(--ooc); }
+.Private { color: var(--private); }
+.System { color: var(--system); }
+.CommandReply { color: var(--reply); }
+.Rejection { color: var(--rejection); }
+
+/* Only up while chat is open. Closed chat is a log you can read, not a box waiting for you.
+   HIDDEN RATHER THAN REMOVED, so its space is reserved whether or not it is shown: taking it out of the
+   layout moves the log the moment chat opens, and an element that is not rendered cannot be focused in the
+   same tick it appears. */
+#entry {
+  visibility: hidden;
+  padding: 7px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--ic);
+  font: inherit;
+  text-shadow: inherit;
+  outline: none;
+}
+
+body.open #entry { visibility: visible; }
+
+#entry:focus { border-color: var(--nickname); }
