@@ -8,8 +8,11 @@
     <Target Name="PackChatCommon" Condition="'$(IsPackable)' == 'true'" DependsOnTargets="ResolveReferences">
         <ItemGroup>
             <_ChatCommon Include="@(ReferenceCopyLocalPaths)"
-                         Condition="'%(Filename)' == 'OblivionMp.ChatMod.Common' and ('%(Extension)' == '.dll' or '%(Extension)' == '.xml')" />
+                         Condition="'%(Filename)' == 'OblivionMp.ChatMod.Common' and '%(Extension)' == '.dll'" />
+            <!-- A project reference's doc file is not among the copied references; it sits next to the assembly -->
+            <_ChatCommonDocs Include="@(_ChatCommon->'%(RootDir)%(Directory)%(Filename).xml')" />
             <BuildOutputInPackage Include="@(_ChatCommon)" />
+            <BuildOutputInPackage Include="@(_ChatCommonDocs)" Condition="Exists('%(FullPath)')" />
         </ItemGroup>
     </Target>
 
