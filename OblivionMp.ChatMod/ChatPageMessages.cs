@@ -41,7 +41,7 @@ internal sealed partial class ChatPageMessages
         if (_page is { } page) SendOpen(page, open);
     }
 
-    /// Shows a line, in <paramref name="color"/> when given rather than the color its kind gets.
+    /// <summary>Shows a line, in <paramref name="color"/> when given rather than the color its kind gets.</summary>
     public void Add(ChatLine line, Color? color = null)
     {
         if (_lines.Count == Capacity)
