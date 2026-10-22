@@ -8,11 +8,11 @@
         <NoWarn>$(NoWarn);CS1591</NoWarn>
 
         <!-- The OblivionMP SDK packages every project builds against -->
-        <OblivionSdkVersion>1.0.0-rc.1</OblivionSdkVersion>
+        <OblivionSdkVersion>1.0.0-rc.3</OblivionSdkVersion>
 
         <!-- The chat NuGet packages, ReadyM.Oblivion.Chat.Client and .Server -->
         <VersionPrefix>1.0.0</VersionPrefix>
-        <VersionSuffix>rc.2</VersionSuffix>
+        <VersionSuffix>rc.3</VersionSuffix>
         <Authors>ReadyCode Limited</Authors>
         <Company>ReadyCode Limited</Company>
         <PackageTags>oblivion;oblivionmp;readym;modding;multiplayer;chat</PackageTags>
